@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import InputField from "./InputField";
 
 function App() {
   const [city, setCity] = useState("");
@@ -26,36 +27,26 @@ function App() {
       <div className="flex justify-center items-center my-20">
         <div className="px-40 py-20 border border-black">
           <div className="flex flex-col items-center gap-y-10 ">
-            <div className="flex flex-col gap-y-3 text-center">
-              <label htmlFor="city">City:</label>
-              <input
-                onChange={(e) => setCity(e.target.value)}
-                id="city"
-                type="text"
-                className="border border-gray-500 rounded-md w-100 py-2 text-center"
-              />
-            </div>
+            <InputField
+              id="city"
+              title="City"
+              setMethod={setCity}
+              type="text"
+            />
 
-            <div className="flex flex-col gap-y-3 text-center">
-              <label htmlFor="country">Country:</label>
-              <input
-                onChange={(e) => setCountry(e.target.value)}
-                id="country"
-                type="text"
-                className="border border-gray-500 rounded-md w-100 py-2 text-center"
-              />
-            </div>
+            <InputField
+              id="country"
+              title="Country"
+              setMethod={setCountry}
+              type="text"
+            />
 
-            <div className="flex flex-col gap-y-3 text-center">
-              <label htmlFor="temperature">Temperature:</label>
-              <input
-                onChange={(e) => setTemperature(e.target.value)}
-                id="temperature"
-                type="number"
-                max={50}
-                className="border border-gray-500 rounded-md w-100 py-2 text-center"
-              />
-            </div>
+            <InputField
+              id="temperature"
+              title="Temperature"
+              setMethod={setTemperature}
+              type="number"
+            />
 
             <button
               onClick={() => onSubmit()}
